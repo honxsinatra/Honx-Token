@@ -1,0 +1,52 @@
+Arguments: 
+  /home/honxsinatra/.nvm/versions/node/v16.14.2/bin/node /home/honxsinatra/.node/corepack/yarn/1.22.15/bin/yarn.js add --dev hardhat
+
+PATH: 
+  /home/honxsinatra/.nvm/versions/node/v16.14.2/bin:/home/honxsinatra/.vscode-server/bin/6c3e3dba23e8fadc360aed75ce363ba185c49794/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Microsoft/VisualStudio/NodeJs:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/Users/HP/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/HP/.dotnet/tools:/mnt/c/Users/HP/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/HP/AppData/Roaming/npm
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.14.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:71:26)
+
+npm manifest: 
+  {
+    "name": "honx-token",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+      "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+      "@nomicfoundation/hardhat-ethers": "^3.0.0",
+      "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+      "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+      "@nomicfoundation/hardhat-verify": "^1.0.0",
+      "@typechain/ethers-v6": "^0.4.0",
+      "@typechain/hardhat": "^8.0.0",
+      "chai": "^4.2.0",
+      "dotenv": "^16.3.1",
+      "ethers": "^6.4.0",
+      "hardhat": "^2.17.1",
+      "hardhat-gas-reporter": "^1.0.8",
+      "solhint": "^3.6.2",
+      "solidity-coverage": "^0.8.0",
+      "typechain": "^8.1.0"
+    },
+    "dependencies": {
+      "@openzeppelin/contracts": "^4.9.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
