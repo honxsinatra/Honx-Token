@@ -12,4 +12,3 @@ Maximum capped amount: 100000000
 ```
 
 # HonxToken
-# HonxToken

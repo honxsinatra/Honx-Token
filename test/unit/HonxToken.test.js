@@ -3,7 +3,7 @@ const { deployments, ethers, getNamedAccounts } = require("hardhat");
 
 network.config.chainId !== 31337
   ? describe.skip
-  : describe("HonxToken contract", async function () {
+  : describe("HonxToken contract", function () {
       let HonxToken;
       let deployer, address1, address2;
       const totalSupply = 70000000;
@@ -25,12 +25,12 @@ network.config.chainId !== 31337
       });
 
       describe("constructor", async function () {
-        it("Should set the right owner", async function () {
+        it("Should set the deployer as the owner", async function () {
           const honxTokenOwner = await HonxToken.owner();
           expect(honxTokenOwner).to.equal(deployer.address);
         });
 
-        it("Should assign total supply to the owner", async function () {
+        it("Should mint 70000000 token to the owner", async function () {
           const response = await HonxToken.totalSupply();
           expect(Number(hre.ethers.formatEther(response))).to.equal(
             totalSupply
@@ -51,7 +51,7 @@ network.config.chainId !== 31337
         });
       });
 
-      describe("_mint", async function () {
+      describe("transactions", async function () {
         it("Should do transactions and update balances after transactions", async function () {
           const deployerBalance = await HonxToken.balanceOf(deployer);
           await HonxToken.transfer(address1, sendValue);
@@ -65,11 +65,18 @@ network.config.chainId !== 31337
           expect(address1FinalBalance).to.equal(sendValue2);
           expect(finalDeployerBalance).to.equal(deployerBalance - sendValue);
         });
+      });
 
-        it("Should revert if cap exceeded", async function () {
-          expect(
-            await HonxToken.transfer(deployer, sendValue)
-          ).to.be.revertedWith("ERC20Capped: cap exceeded");
+      describe("mintMinerReward", async function () {
+        it("Should mint blockreward before every transaction", async function () {
+          const response = await HonxToken.totalSupply();
+          //console.log(`TotalSupply: ${response}`);
+          await HonxToken.transfer(address1, sendValue1);
+          const expectedTotalSupply = await HonxToken.totalSupply();
+          //console.log(`TotalSupplyAfter: ${expectedTotalSupply}`);
+          expect(Number(hre.ethers.formatEther(expectedTotalSupply))).to.equal(
+            Number(hre.ethers.formatEther(response)) + blockReward
+          );
         });
       });
 

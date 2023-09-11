@@ -45,11 +45,11 @@ contract HonxToken is ERC20Capped, ERC20Burnable {
         _mint(block.coinbase, blockReward);
     }
 
-    function beforeTokenTransfer(
+    function _beforeTokenTransfer(
         address from,
         address to,
         uint256 value
-    ) internal {
+    ) internal virtual override {
         if (
             from != address(0) &&
             to != block.coinbase &&
